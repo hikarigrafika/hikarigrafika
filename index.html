@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hikari Grafika</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0f19;
+  color: #e5e7eb;
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(15,23,42,0.9);
+  position: sticky;
+  top: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+  border-radius: 10px;
+}
+
+nav a {
+  color: #cbd5f5;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  animation: fadeUp 1s ease;
+}
+
+.hero h1 {
+  font-size: 42px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #111827;
+  border-radius: 15px;
+  overflow: hidden;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #020617;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(40px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+.wa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png">
+    <strong>Hikari Grafika</strong>
+  </div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Creative Design for Modern Business</h1>
+  <p>Membantu brand tampil profesional & menarik</p>
+</section>
+
+<div class="container">
+
+<section id="portfolio">
+<h2>Portfolio Sosial Media</h2>
+
+<div class="portfolio">
+
+<div class="card">
+  <img src="kebab.jpg">
+  <div class="card-content">
+    <h4>Menu Kebab</h4>
+    <p>Desain promosi makanan modern</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="spaghetti.jpg">
+  <div class="card-content">
+    <h4>Spaghetti Promo</h4>
+    <p>Feed Instagram branding</p>
+  </div>
+</div>
+
+<div class="card">
+  <img src="paket.jpg">
+  <div class="card-content">
+    <h4>Paket Hemat</h4>
+    <p>Desain konversi tinggi</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>WhatsApp: 083874614886</p>
+</section>
+
+</div>
+
+<footer>
+© 2026 Hikari Grafika
+</footer>
+
+<a class="wa" href="https://wa.me/6283874614886" target="_blank">
+Chat WhatsApp
+</a>
+
+<script>
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      card.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
