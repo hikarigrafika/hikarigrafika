@@ -53,6 +53,25 @@ margin:auto;
 text-align:center;
 margin-top:40px;
 }
+ /* ✅ Parallax real */
+.parallax {
+will-change: transform;
+transition: transform 0.1s linear;
+}
+
+/* ✅ Logo hover premium */
+.logo-small img{
+width:70%;
+margin:auto;
+transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+border-radius:12px;
+}
+
+.logo-small:hover img{
+transform: scale(1.08) translateY(-5px);
+box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+filter: brightness(1.05) contrast(1.05);
+}
 </style>
 </head>
 
@@ -61,7 +80,7 @@ margin-top:40px;
 <section class="hero">
 
 <!-- COVER IMAGE -->
-<img src="cover.png" alt="cover" class="cover-anim" style="
+<img src="cover.png" alt="cover" class="cover-anim parallax" style="
 width:100%;
 max-width:900px;
 border-radius:16px;
@@ -151,6 +170,15 @@ function openModal(src){
 function closeModal(){
  document.getElementById('modal').style.display='none';
 }
+ /* ✅ Parallax effect real */
+window.addEventListener("scroll", function(){
+  const parallax = document.querySelector(".parallax");
+  let scrollY = window.scrollY;
+  
+  if(parallax){
+    parallax.style.transform = "translateY(" + scrollY * 0.3 + "px)";
+  }
+});
 </script>
 
 </body>
