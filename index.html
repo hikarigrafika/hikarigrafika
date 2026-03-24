@@ -38,34 +38,45 @@ animation: blink 1s infinite;
 50% {opacity:0;}
 }
 
-.logo-small img{
-width:70%;
-margin:auto;
-transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-border-radius:12px;
+/* ========================= */
+/* ✅ SOSMED ANIMATION FIX */
+/* ========================= */
+
+.sosmed-wrapper{
+overflow:hidden;
+height:500px;
+background:#fff;
+position:relative;
 }
 
-.logo-small:hover img{
-transform: scale(1.08) translateY(-5px);
-box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-filter: brightness(1.05) contrast(1.05);
+.sosmed-anim{
+display:grid;
+grid-template-columns: repeat(3,1fr);
+gap:10px;
+animation: scrollUp 10s linear infinite;
 }
 
-.cta{text-align:center;margin-top:40px;}
-
-.parallax {
-will-change: transform;
-transition: transform 0.1s linear;
+.sosmed-anim.reverse{
+animation: scrollDown 10s linear infinite;
 }
 
-/* ✅ Sosmed mobile 2x2 */
+@keyframes scrollUp{
+0%{transform:translateY(0);}
+100%{transform:translateY(-50%);}
+}
+
+@keyframes scrollDown{
+0%{transform:translateY(-50%);}
+100%{transform:translateY(0);}
+}
+
+/* Mobile tetap rapi */
 @media(max-width:768px){
-  .sosmed-grid{
+  .sosmed-anim{
     grid-template-columns: repeat(2,1fr);
   }
 }
 
-/* ✅ Logo 4x2 */
 .logo-grid{
 grid-template-columns: repeat(4,1fr);
 }
@@ -80,7 +91,6 @@ grid-template-columns: repeat(4,1fr);
 
 <body>
 
-<!-- ✅ NAVBAR -->
 <nav style="
 position:fixed;
 top:0;
@@ -128,20 +138,32 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 <p data-aos="fade-up" data-aos-delay="200">Nama saya Egi Muhammad Nur, pengalaman lebih dari 3 tahun dalam dunia desain.</p>
 </section>
 
+<!-- ========================= -->
+<!-- ✅ REVISI SOSMED FEED -->
+<!-- ========================= -->
 <section id="portfolio">
 <h2 data-aos="fade-up">Sosmed Feed</h2>
 
-<div class="grid sosmed-grid">
-<div class="card" onclick="openModal('spaghetti.jpeg')" data-aos="zoom-in"><img src="spaghetti.jpeg"></div>
-<div class="card" onclick="openModal('fried-chicken.jpeg')" data-aos="zoom-in"><img src="fried-chicken.jpeg"></div>
-<div class="card" onclick="openModal('kebab.jpeg')" data-aos="zoom-in"><img src="kebab.jpeg"></div>
+<div class="sosmed-wrapper">
+  <div class="sosmed-anim" id="sosmedAnim">
 
-<!-- ✅ TAMBAHAN GAMBAR BARU -->
-<div class="card" onclick="openModal('goreng-nasi.jpeg')" data-aos="zoom-in">
-<img src="goreng-nasi.jpeg">
+    <!-- 3 ATAS -->
+    <div class="card"><img src="spaghetti.jpeg"></div>
+    <div class="card"><img src="fried-chicken.jpeg"></div>
+    <div class="card"><img src="kebab.jpeg"></div>
+
+    <!-- 1 BAWAH -->
+    <div class="card"><img src="goreng-nasi.jpeg"></div>
+
+    <!-- DUPLIKASI UNTUK LOOP HALUS -->
+    <div class="card"><img src="spaghetti.jpeg"></div>
+    <div class="card"><img src="fried-chicken.jpeg"></div>
+    <div class="card"><img src="kebab.jpeg"></div>
+    <div class="card"><img src="goreng-nasi.jpeg"></div>
+
+  </div>
 </div>
 
-</div>
 </section>
 
 <section>
@@ -196,9 +218,7 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 <img id="modalImg">
 </div>
 
-<a href="https://wa.me/6283874614886" class="wa">
-<!-- icon tetap -->
-</a>
+<a href="https://wa.me/6283874614886" class="wa"></a>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
@@ -223,6 +243,24 @@ function closeModal(){
  document.getElementById('modal').style.display='none';
 }
 
+/* ========================= */
+/* ✅ DETEKSI ARAH SCROLL */
+/* ========================= */
+let lastScroll = 0;
+window.addEventListener("scroll", function(){
+  const currentScroll = window.scrollY;
+  const anim = document.getElementById("sosmedAnim");
+
+  if(currentScroll > lastScroll){
+    anim.classList.remove("reverse"); // scroll down = anim naik
+  } else {
+    anim.classList.add("reverse"); // scroll up = anim turun
+  }
+
+  lastScroll = currentScroll;
+});
+
+/* PARALLAX TETAP */
 window.addEventListener("scroll", function(){
   const parallax = document.querySelector(".parallax");
   let scrollY = window.scrollY;
