@@ -86,6 +86,23 @@ grid-template-columns: repeat(4,1fr);
     grid-template-columns: repeat(2,1fr);
   }
 }
+/* ✅ FORCE 3 KOLOM DI MOBILE */
+@media(max-width:768px){
+  .sosmed-anim{
+    grid-template-columns: repeat(3,1fr) !important;
+  }
+}
+
+/* ✅ BIAR KOTAK (FEED IG) */
+.sosmed-anim .card{
+  aspect-ratio: 1/1;
+}
+
+.sosmed-anim img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 </style>
 </head>
 
@@ -144,8 +161,47 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 <section id="portfolio">
 <h2 data-aos="fade-up">Sosmed Feed</h2>
 
-<div class="sosmed-wrapper">
+<h2 data-aos="fade-up">Sosmed Feed</h2>
+
+<!-- ✅ FEED LAMA (tanpa animasi loop) -->
+<div class="grid sosmed-grid">
+
+  <div class="card" data-aos="fade-up">
+    <img src="spaghetti.jpeg">
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <img src="fried-chicken.jpeg">
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <img src="kebab.jpeg">
+  </div>
+
+  <div class="card" data-aos="fade-up">
+    <img src="goreng-nasi.jpeg">
+  </div>
+
+</div>
+
+<!-- ✅ FEED BARU (ANIMASI SCROLL) -->
+<div class="sosmed-wrapper" style="margin-top:40px;">
   <div class="sosmed-anim" id="sosmedAnim">
+
+    <!-- ASLI -->
+    <div class="card"><img src="images/feed-01.jpg"></div>
+    <div class="card"><img src="images/feed-02.jpg"></div>
+    <div class="card"><img src="images/feed-03.jpg"></div>
+    <div class="card"><img src="images/feed-04.jpg"></div>
+
+    <!-- DUPLIKAT -->
+    <div class="card"><img src="images/feed-01.jpg"></div>
+    <div class="card"><img src="images/feed-02.jpg"></div>
+    <div class="card"><img src="images/feed-03.jpg"></div>
+    <div class="card"><img src="images/feed-04.jpg"></div>
+
+  </div>
+</div>
 
   <!-- 3 atas -->
   <div class="card"><img src="feed-01.jpg"></div>
@@ -211,6 +267,22 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 
 <div class="card logo-small" onclick="openModal('tc-logo.png')" data-aos="fade-up">
 <img src="tc-logo.png">
+</div>
+
+<div class="card logo-small" onclick="openModal('arinda-group.png')" data-aos="fade-up">
+<img src="arinda-group.png">
+</div>
+
+<div class="card logo-small" onclick="openModal('nusa-cell.png')" data-aos="fade-up">
+<img src="nusa-cell.png">
+</div>
+
+<div class="card logo-small" onclick="openModal('tigrans.png')" data-aos="fade-up">
+<img src="tigrans.png">
+</div>
+
+<div class="card logo-small" onclick="openModal('siska-florist.png')" data-aos="fade-up">
+<img src="siska-florist.png">
 </div>
 
 </div>
