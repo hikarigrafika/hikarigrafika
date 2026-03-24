@@ -23,72 +23,6 @@ section{padding:80px 20px;max-width:1200px;margin:auto;}
 .close{position:absolute;top:20px;right:30px;color:#fff;font-size:30px;cursor:pointer;}
 .wa{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50%;text-decoration:none;font-size:20px;display:flex;align-items:center;justify-content:center;}
 
-/* NAVBAR MODERN */
-.navbar{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,0.8);
-backdrop-filter:blur(12px);
-z-index:999;
-}
-
-.nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-max-width:1200px;
-margin:auto;
-}
-
-.logo{
-font-weight:700;
-font-size:20px;
-color:#2563eb;
-}
-
-.nav-menu{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-.nav-menu a{
-text-decoration:none;
-color:#333;
-font-weight:500;
-}
-
-/* Hamburger */
-.hamburger{
-display:none;
-font-size:24px;
-cursor:pointer;
-}
-
-/* Mobile */
-@media(max-width:768px){
-.nav-menu{
-position:absolute;
-top:70px;
-right:0;
-background:#fff;
-flex-direction:column;
-width:200px;
-padding:20px;
-display:none;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.nav-menu.active{
-display:flex;
-}
-
-.hamburger{
-display:block;
-}
-
 .cover-anim {animation: fadeZoom 1.5s ease forwards;}
 @keyframes fadeZoom {
 0% {opacity:0; transform:scale(1.05);}
@@ -146,28 +80,27 @@ grid-template-columns: repeat(4,1fr);
 
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    
-    <!-- Logo -->
-    <div class="logo">Hikari</div>
-
-    <!-- Menu -->
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#about">Service</a></li>
-      <li><a href="#portfolio">Portofolio</a></li>
-      <li><a href="https://wa.me/6283874614886">Kontak</a></li>
-    </ul>
-
-    <!-- Hamburger -->
-    <div class="hamburger" onclick="toggleMenu()">
-      ☰
-    </div>
-
-  </div>
+<!-- ✅ NAVBAR -->
+<nav style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:15px;
+background:rgba(255,255,255,0.9);
+backdrop-filter:blur(10px);
+z-index:999;
+font-weight:600;
+">
+<a href="#" style="text-decoration:none;color:#333;">Home</a>
+<a href="#about" style="text-decoration:none;color:#333;">Service</a>
+<a href="#portfolio" style="text-decoration:none;color:#333;">Portofolio</a>
+<a href="https://wa.me/6283874614886" style="text-decoration:none;color:#333;">Kontak</a>
 </nav>
-  
+
 <section class="hero">
 
 <img src="cover.png" class="cover-anim parallax" style="width:100%;max-width:900px;border-radius:16px;margin-bottom:20px;" data-aos="fade-up">
@@ -202,6 +135,8 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 <div class="card" onclick="openModal('spaghetti.jpeg')" data-aos="zoom-in"><img src="spaghetti.jpeg"></div>
 <div class="card" onclick="openModal('fried-chicken.jpeg')" data-aos="zoom-in"><img src="fried-chicken.jpeg"></div>
 <div class="card" onclick="openModal('kebab.jpeg')" data-aos="zoom-in"><img src="kebab.jpeg"></div>
+
+<!-- ✅ TAMBAHAN GAMBAR BARU -->
 <div class="card" onclick="openModal('goreng-nasi.jpeg')" data-aos="zoom-in">
 <img src="goreng-nasi.jpeg">
 </div>
@@ -211,11 +146,8 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 
 <section>
 <h2>Poster</h2>
-<div class="grid poster-grid">
-<div class="card" onclick="openModal('idul-fitri.jpeg')" data-aos="zoom-in"><img src="idul-fitri.jpeg"></div>
-<div class="card" onclick="openModal('jasa-desain.jpeg')" data-aos="zoom-in"><img src="jasa-desain.jpeg"></div>
-<div class="card" onclick="openModal('aryani.jpeg')" data-aos="zoom-in"><img src="aryani.jpeg"></div>
-<div class="card" onclick="openModal('mjlk.jpeg')" data-aos="zoom-in"><img src="mjlk.jpeg"></div>
+<div class="grid">
+<div class="card">Coming Soon</div>
 </div>
 </section>
 
@@ -254,22 +186,6 @@ Hubungi saya untuk komisi dan konsultasi desainmu sekarang!
 
 <div class="card logo-small" onclick="openModal('tc-logo.png')" data-aos="fade-up">
 <img src="tc-logo.png">
-</div>
-
-<div class="card logo-small" onclick="openModal('tigrans.png')" data-aos="fade-up">
-<img src="tigrans.png">
-</div>
-
-<div class="card logo-small" onclick="openModal('nusa-cell.png')" data-aos="fade-up">
-<img src="nusa-cell.png">
-</div>
-
-<div class="card logo-small" onclick="openModal('siska-florist.png')" data-aos="fade-up">
-<img src="siska-florist.png">
-</div>
-
-<div class="card logo-small" onclick="openModal('arinda-group.png')" data-aos="fade-up">
-<img src="arinda-group.png">
 </div>
 
 </div>
@@ -314,13 +230,7 @@ window.addEventListener("scroll", function(){
     parallax.style.transform = "translateY(" + scrollY * 0.3 + "px)";
   }
 });
-
-function toggleMenu(){
-  document.getElementById("navMenu").classList.toggle("active");
-}
-  
 </script>
-
 
 <footer style="text-align:center;padding:30px 20px;font-size:14px;color:#777;margin-top:50px;">
 © 2026 Hikari. All rights reserved.
