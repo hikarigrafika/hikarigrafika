@@ -90,6 +90,8 @@ object-fit:contain;
 nav{
 background-size:cover;
 background-position:center;
+box-sizzing: border-box;
+transition: 0.3s;
 }
 
 /* MENU SLIDE */
@@ -116,7 +118,7 @@ overflow-x:hidden;
 
 <body>
 
-<nav style="
+<nav id="navbar" style="
 position:fixed;
 top:0;
 left:0;
@@ -325,6 +327,22 @@ menuBtn.onclick = function(){
     menu.style.right = "0";
   }
 }
+let lastScroll = 0;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", function() {
+  let currentScroll = window.pageYOffset;
+
+  if (currentScroll > lastScroll) {
+    // scroll ke bawah → sembunyikan
+    navbar.style.top = "-100px";
+  } else {
+    // scroll ke atas → tampilkan
+    navbar.style.top = "0";
+  }
+
+  lastScroll = currentScroll;
+});
 </script>
 
 <footer style="text-align:center;padding:30px 20px;font-size:14px;color:#777;margin-top:50px;">
