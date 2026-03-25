@@ -14,13 +14,31 @@
 
 <style>
 body {font-family:'Poppins',sans-serif;margin:0;background:#fff;color:#333;}
+body{
+scroll-behavior:smooth;
+}
 h1,h2{color:#2563eb;}
 section{padding:80px 20px;max-width:1200px;margin:auto;}
+section{
+border-bottom:1px solid #eee;
+}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 .card{border-radius:16px;overflow:hidden;cursor:pointer;transition:.3s;}
+.card{
+background: rgba(255,255,255,0.7);
+backdrop-filter: blur(10px);
+}
 .card img{width:100%;display:block;}
 .card:hover{transform:scale(1.05);}
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 .btn{background:#2563eb;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:15px;}
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 .hero{text-align:center;height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:100px;}
 .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);justify-content:center;align-items:center;}
 .modal img{max-width:90%;border-radius:12px;}
@@ -286,7 +304,11 @@ Klik di sini untuk komisi dan konsultasi desainmu sekarang!
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init();
+AOS.init({
+ duration: 800,
+ once: true,
+ easing: 'ease-in-out'
+});
 
 const text = "Solusi kebutuhan branding mu";
 let i = 0;
