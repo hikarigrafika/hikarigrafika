@@ -143,32 +143,53 @@ body{
 overflow-x:hidden;
 }
 
+/* ===== SLIDER FIX FINAL ===== */
+
 .slider-container{
   position: relative;
-  overflow: hidden;
   margin-top: 30px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
+/* wrapper biar bener2 center */
+.slider-wrapper{
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* isi slider */
 .slider{
   display: flex;
   gap: 15px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
-  max-width: 1000px;
-  width: 100%;
 }
 
-/* IMPORTANT: biar item bisa center */
-.slider::before,
-.slider::after{
-  content: "";
-  flex: 0 0 50px; /* spacer kiri kanan */
+/* biar bisa swipe halus + snap */
+.slider{
+  scroll-snap-type: x mandatory;
 }
-/* BUTTON */
+
+.slider img{
+  width: 280px;
+  height: 280px; /* FIX biar gak memanjang */
+  object-fit: cover; /* biar proporsional */
+  border-radius: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+  scroll-snap-align: center;
+  transition: 0.3s;
+}
+
+.slider img:hover{
+  transform: scale(1.05);
+}
+
+/* tombol */
 .slider-btn{
   position: absolute;
   top: 50%;
@@ -176,43 +197,18 @@ overflow-x:hidden;
   background: rgba(0,0,0,0.5);
   color: #fff;
   border: none;
-  padding: 10px 15px;
-  cursor: pointer;
+  padding: 10px 14px;
   border-radius: 50%;
+  cursor: pointer;
   z-index: 2;
 }
 
-.slider-btn.left{
-  left: 10px;
-}
+.slider-btn.left{ left: 10px; }
+.slider-btn.right{ right: 10px; }
 
-.slider-btn.right{
-  right: 10px;
-}
-
-/* HIDE SCROLLBAR */
+/* hilangin scrollbar */
 .slider::-webkit-scrollbar{
   display: none;
-}
-
-/* CENTER CONTAINER */
-.slider-container{
-  position: relative;
-  overflow: hidden;
-  margin-top: 30px;
-  display: flex;
-  justify-content: center; /* ini yang bikin center */
-}
-
-/* BATASI LEBAR & CENTER ISI */
-.slider{
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
-  max-width: 1000px; /* biar gak full kiri */
-  justify-content: center; /* center isi kalau belum penuh */
 }
   
 </style>
@@ -305,13 +301,15 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 </div>
 
 <div class="slider-container" data-aos="fade-up">
-  
+
   <button class="slider-btn left" onclick="slideLeft()">❮</button>
 
-  <div class="slider" id="slider">
-    <img src="feed1.jpeg" onclick="openModal('feed1.jpeg')">
-    <img src="feed2.jpeg" onclick="openModal('feed2.jpeg')">
-    <img src="feed3.jpeg" onclick="openModal('feed3.jpeg')">
+  <div class="slider-wrapper">
+    <div class="slider" id="slider">
+      <img src="feed1.jpg" onclick="openModal('feed1.jpg')">
+      <img src="feed2.jpg" onclick="openModal('feed2.jpg')">
+      <img src="feed3.jpg" onclick="openModal('feed3.jpg')">
+    </div>
   </div>
 
   <button class="slider-btn right" onclick="slideRight()">❯</button>
