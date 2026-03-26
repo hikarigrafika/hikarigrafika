@@ -209,6 +209,59 @@ overflow-x:hidden;
 .slider::-webkit-scrollbar{
   display: none;
 }
+
+/* BALIKIN GRID FEED NORMAL */
+.sosmed-grid .card img{
+  width: 100%;
+  height: auto !important;
+  object-fit: cover;
+}
+
+/* ===== FIX CAROUSEL FINAL ===== */
+
+.slider-container{
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.slider{
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+/* WAJIB biar bisa di scroll */
+.slider::-webkit-scrollbar{
+  display: none;
+}
+
+.slide-img{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* tombol */
+.slider-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-btn.left{ left: 10px; }
+.slider-btn.right{ right: 10px; }
   
 </style>
 </head>
@@ -299,16 +352,14 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 <img src="goreng-nasi.jpeg">
 </div>
 
-<div class="slider-container" data-aos="fade-up">
+<div class="slider-container">
 
   <button class="slider-btn left" onclick="slideLeft()">❮</button>
 
-  <div class="slider-wrapper">
-    <div class="slider" id="slider">
-      <img src="feed1.jpeg" class="slide-img">
-      <img src="feed2.jpeg" class="slide-img">
-      <img src="feed3.jpeg" class="slide-img">
-    </div>
+  <div class="slider" id="slider">
+    <img src="feed1.jpg" class="slide-img">
+    <img src="feed2.jpg" class="slide-img">
+    <img src="feed3.jpg" class="slide-img">
   </div>
 
   <button class="slider-btn right" onclick="slideRight()">❯</button>
@@ -502,6 +553,25 @@ window.addEventListener("load", () => {
   const scrollAmount = (slider.scrollWidth - slider.clientWidth) / 2;
   slider.scrollLeft = scrollAmount;
 });
+</script>
+
+<script>
+const slider = document.getElementById("slider");
+
+function slideRight(){
+  slider.scrollLeft += 260;
+}
+
+function slideLeft(){
+  slider.scrollLeft -= 260;
+}
+
+/* AUTO SCROLL */
+setInterval(() => {
+  if(slider){
+    slider.scrollLeft += 260;
+  }
+}, 3000);
 </script>
 
   lastScroll = currentScroll;
