@@ -326,6 +326,19 @@ overflow-x:hidden;
   object-fit: contain !important;
   display: block;
 }
+
+/* BALIKIN GRID JADI 2x2 */
+#portfolio .sosmed-grid{
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px;
+}
+
+@media(max-width:768px){
+  #portfolio .sosmed-grid{
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
   
 </style>
 </head>
@@ -638,8 +651,6 @@ setInterval(() => {
 }, 3000);
 </script>
 
-  lastScroll = currentScroll;
-});
 </script>
 
 <footer class="bg-gradient" style="text-align:center;padding:30px 20px;font-size:14px;margin-top:50px;">
