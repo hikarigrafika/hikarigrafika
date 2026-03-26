@@ -239,12 +239,19 @@ overflow-x:hidden;
 }
 
 .slide-img{
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
+  width: 240px;
+  height: auto; /* PENTING: biar portrait tetap utuh */
+  max-height: 400px; /* biar gak kepanjangan banget */
+  object-fit: contain; /* gak crop */
   flex-shrink: 0;
   border-radius: 12px;
   cursor: pointer;
+  display: block;
+}
+
+.slide-img{
+  background: #f3f3f3; /* biar ada frame halus */
+  padding: 5px;
 }
 
 /* tombol */
@@ -302,6 +309,22 @@ overflow-x:hidden;
 .slider{
   overflow-x: auto !important;
   display: flex;
+}
+
+/* ===== FIX GRID TANPA MERUSAK RATIO ===== */
+#portfolio .sosmed-grid .card img{
+  width: 100% !important;
+  height: auto !important; /* BALIKIN KE ASLI (PENTING) */
+  object-fit: contain !important;
+  display: block;
+}
+
+/* ===== FIX GRID TANPA MERUSAK RATIO ===== */
+#portfolio .sosmed-grid .card img{
+  width: 100% !important;
+  height: auto !important; /* BALIKIN KE ASLI (PENTING) */
+  object-fit: contain !important;
+  display: block;
 }
   
 </style>
