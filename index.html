@@ -147,6 +147,9 @@ overflow-x:hidden;
   position: relative;
   overflow: hidden;
   margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .slider{
@@ -155,20 +158,16 @@ overflow-x:hidden;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 10px;
+  max-width: 1000px;
+  width: 100%;
 }
 
-.slider img{
-  width: 300px;
-  border-radius: 12px;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: 0.3s;
+/* IMPORTANT: biar item bisa center */
+.slider::before,
+.slider::after{
+  content: "";
+  flex: 0 0 50px; /* spacer kiri kanan */
 }
-
-.slider img:hover{
-  transform: scale(1.05);
-}
-
 /* BUTTON */
 .slider-btn{
   position: absolute;
@@ -310,9 +309,9 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
   <button class="slider-btn left" onclick="slideLeft()">❮</button>
 
   <div class="slider" id="slider">
-    <img src="feed1.jpg" onclick="openModal('feed1.jpg')">
-    <img src="feed2.jpg" onclick="openModal('feed2.jpg')">
-    <img src="feed3.jpg" onclick="openModal('feed3.jpg')">
+    <img src="feed1.jpeg" onclick="openModal('feed1.jpeg')">
+    <img src="feed2.jpeg" onclick="openModal('feed2.jpeg')">
+    <img src="feed3.jpeg" onclick="openModal('feed3.jpeg')">
   </div>
 
   <button class="slider-btn right" onclick="slideRight()">❯</button>
@@ -476,6 +475,14 @@ window.addEventListener("scroll", function() {
     // scroll ke atas → tampilkan
     navbar.style.top = "0";
   }
+
+<script>
+// CENTER SAAT LOAD
+window.addEventListener("load", () => {
+  const slider = document.getElementById("slider");
+  slider.scrollLeft = (slider.scrollWidth - slider.clientWidth) / 2;
+});
+</script>
 
   lastScroll = currentScroll;
 });
