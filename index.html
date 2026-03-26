@@ -174,10 +174,10 @@ overflow-x:hidden;
   scroll-snap-type: x mandatory;
 }
 
-.slider img{
+.slide-img{
   width: 280px;
-  height: 280px; /* FIX biar gak memanjang */
-  object-fit: cover; /* biar proporsional */
+  height: 280px;
+  object-fit: cover;
   border-radius: 12px;
   flex-shrink: 0;
   cursor: pointer;
@@ -185,10 +185,9 @@ overflow-x:hidden;
   transition: 0.3s;
 }
 
-.slider img:hover{
+.slide-img:hover{
   transform: scale(1.05);
 }
-
 /* tombol */
 .slider-btn{
   position: absolute;
@@ -306,9 +305,9 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 
   <div class="slider-wrapper">
     <div class="slider" id="slider">
-      <img src="feed1.jpg" onclick="openModal('feed1.jpg')">
-      <img src="feed2.jpg" onclick="openModal('feed2.jpg')">
-      <img src="feed3.jpg" onclick="openModal('feed3.jpg')">
+      <img src="feed1.jpeg" class="slide-img">
+      <img src="feed2.jpeg" class="slide-img">
+      <img src="feed3.jpeg" class="slide-img">
     </div>
   </div>
 
