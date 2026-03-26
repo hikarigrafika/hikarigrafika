@@ -482,6 +482,29 @@ window.addEventListener("load", () => {
 });
 </script>
 
+<script>
+const slider = document.getElementById("slider");
+
+function slideRight(){
+  slider.scrollBy({ left: 300, behavior: 'smooth' });
+}
+
+function slideLeft(){
+  slider.scrollBy({ left: -300, behavior: 'smooth' });
+}
+
+/* AUTO SLIDE */
+setInterval(() => {
+  slider.scrollBy({ left: 300, behavior: 'smooth' });
+}, 3000);
+
+/* AUTO CENTER PAS LOAD */
+window.addEventListener("load", () => {
+  const scrollAmount = (slider.scrollWidth - slider.clientWidth) / 2;
+  slider.scrollLeft = scrollAmount;
+});
+</script>
+
   lastScroll = currentScroll;
 });
 </script>
