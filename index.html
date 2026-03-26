@@ -262,6 +262,47 @@ overflow-x:hidden;
 
 .slider-btn.left{ left: 10px; }
 .slider-btn.right{ right: 10px; }
+
+/* ===== FORCE FIX GRID SOSMED ===== */
+.sosmed-grid{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.sosmed-grid .card{
+  width: 100% !important;
+}
+
+.sosmed-grid .card img{
+  width: 100% !important;
+  height: auto !important;
+  max-height: 300px !important;
+  object-fit: cover !important;
+}
+
+/* ===== HARD RESET GRID SOSMED ===== */
+#portfolio .sosmed-grid{
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+#portfolio .sosmed-grid .card{
+  height: auto !important;
+}
+
+#portfolio .sosmed-grid .card img{
+  width: 100% !important;
+  height: 250px !important; /* KUNCI BIAR GAK MEMBESAR */
+  object-fit: cover !important;
+  display: block;
+}
+
+.slider{
+  overflow-x: auto !important;
+  display: flex;
+}
   
 </style>
 </head>
