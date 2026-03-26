@@ -142,6 +142,13 @@ box-sizing: border-box;
 body{
 overflow-x:hidden;
 }
+
+.slider{
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  scroll-behavior:smooth;
+}
   
 </style>
 </head>
@@ -230,6 +237,17 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 <div class="card" onclick="openModal('kebab.jpeg')" data-aos="zoom-in"><img src="kebab.jpeg"></div>
 <div class="card" onclick="openModal('goreng-nasi.jpeg')" data-aos="zoom-in">
 <img src="goreng-nasi.jpeg">
+</div>
+
+<div class="slider" id="slider">
+  <img src="feed1.jpeg" class="slide-img">
+  <img src="feed2.jpeg" class="slide-img">
+  <img src="feed3.jpeg" class="slide-img">
+
+  <!-- DUPLIKAT BUAT LOOP -->
+  <img src="feed1.jpeg" class="slide-img">
+  <img src="feed2.jpeg" class="slide-img">
+  <img src="feed3.jpeg" class="slide-img">
 </div>
 
 </div>
@@ -346,6 +364,26 @@ window.addEventListener("scroll", function(){
     parallax.style.transform = "translateY(" + scrollY * 0.3 + "px)";
   }
 });
+</script>
+
+<script>
+const slider = document.getElementById("slider");
+
+function slideRight(){
+  slider.scrollLeft += 260;
+}
+
+function slideLeft(){
+  slider.scrollLeft -= 260;
+}
+
+/* AUTO + INFINITE */
+setInterval(()=>{
+  if(slider.scrollLeft >= slider.scrollWidth / 2){
+    slider.scrollLeft = 0;
+  }
+  slider.scrollLeft += 2;
+},20);
 </script>
 
 <script>
