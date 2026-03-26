@@ -195,6 +195,26 @@ overflow-x:hidden;
 .slider::-webkit-scrollbar{
   display: none;
 }
+
+/* CENTER CONTAINER */
+.slider-container{
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center; /* ini yang bikin center */
+}
+
+/* BATASI LEBAR & CENTER ISI */
+.slider{
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  max-width: 1000px; /* biar gak full kiri */
+  justify-content: center; /* center isi kalau belum penuh */
+}
   
 </style>
 </head>
@@ -290,9 +310,9 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
   <button class="slider-btn left" onclick="slideLeft()">❮</button>
 
   <div class="slider" id="slider">
-    <img src="feed1.jpg" onclick="openModal('poster1.jpg')">
-    <img src="feed2.jpg" onclick="openModal('poster2.jpg')">
-    <img src="feed3.jpg" onclick="openModal('poster3.jpg')">
+    <img src="feed1.jpg" onclick="openModal('feed1.jpg')">
+    <img src="feed2.jpg" onclick="openModal('feed2.jpg')">
+    <img src="feed3.jpg" onclick="openModal('feed3.jpg')">
   </div>
 
   <button class="slider-btn right" onclick="slideRight()">❯</button>
