@@ -177,6 +177,17 @@ overflow-x:hidden;
   border-radius:50%;
 }
 
+.slider-container{
+  position:relative;
+  width:100%;      
+  max-width:100%;  
+  margin:auto;    
+}
+
+.slider{
+  justify-content:flex-start;
+}
+
 .prev{left:10px;}
 .next{right:10px;}
   
@@ -269,28 +280,30 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 <img src="goreng-nasi.jpeg">
 </div>
 
-<h3 style="margin-top:40px; text-align:center;">
-Feed Lainnya
-</h3>
+<div style="margin-top:40px; text-align:center;">
 
-<div class="slider-container">
-  
-  <button class="nav prev">&#10094;</button>
+  <h3>Feed Lainnya</h3>
 
-  <div class="slider" id="posterSlider">
-    <img src="poster1.jpeg" onclick="openModal('poster1.jpeg')">
-    <img src="poster2.jpeg" onclick="openModal('poster2.jpeg')">
-    <img src="poster3.jpeg" onclick="openModal('poster3.jpeg')">
+  <div class="slider-container">
+    
+    <button class="nav prev">&#10094;</button>
 
-    <img src="poster1.jpeg" onclick="openModal('poster1.jpeg')">
-    <img src="poster2.jpeg" onclick="openModal('poster2.jpeg')">
-    <img src="poster3.jpeg" onclick="openModal('poster3.jpeg')">
+    <div class="slider" id="posterSlider">
+      <img src="poster1.jpeg" onclick="openModal('poster1.jpeg')">
+      <img src="poster2.jpeg" onclick="openModal('poster2.jpeg')">
+      <img src="poster3.jpeg" onclick="openModal('poster3.jpeg')">
+
+      <!-- duplikat -->
+      <img src="poster1.jpeg">
+      <img src="poster2.jpeg">
+      <img src="poster3.jpeg">
+    </div>
+
+    <button class="nav next">&#10095;</button>
+
   </div>
 
-  <button class="nav next">&#10095;</button>
-
 </div>
-
 
 </div>
 </section>
