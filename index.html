@@ -192,6 +192,23 @@ overflow-x:hidden;
   justify-content:flex-start;
 }
 
+.center-mode{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+
+  scroll-snap-type: x mandatory;
+
+  padding-left:50%;
+  padding-right:50%;
+}
+
+.slide{
+  scroll-snap-align:center;
+}
+
 .prev{left:10px;}
 .next{right:10px;}
   
@@ -292,7 +309,7 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
     
     <button class="nav prev">&#10094;</button>
 
-    <div class="slider" id="posterSlider">
+    <div class="slider center-mode" id="posterSlider">
       <img src="poster1.jpeg" onclick="openModal('poster1.jpeg')">
       <img src="poster2.jpeg" onclick="openModal('poster2.jpeg')">
       <img src="poster3.jpeg" onclick="openModal('poster3.jpeg')">
