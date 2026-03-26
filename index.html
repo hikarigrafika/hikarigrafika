@@ -142,6 +142,59 @@ box-sizing: border-box;
 body{
 overflow-x:hidden;
 }
+
+.slider-container{
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+}
+
+.slider{
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+}
+
+.slider img{
+  width: 300px;
+  border-radius: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.slider img:hover{
+  transform: scale(1.05);
+}
+
+/* BUTTON */
+.slider-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.slider-btn.left{
+  left: 10px;
+}
+
+.slider-btn.right{
+  right: 10px;
+}
+
+/* HIDE SCROLLBAR */
+.slider::-webkit-scrollbar{
+  display: none;
+}
   
 </style>
 </head>
@@ -230,6 +283,20 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 <div class="card" onclick="openModal('kebab.jpeg')" data-aos="zoom-in"><img src="kebab.jpeg"></div>
 <div class="card" onclick="openModal('goreng-nasi.jpeg')" data-aos="zoom-in">
 <img src="goreng-nasi.jpeg">
+</div>
+
+<div class="slider-container" data-aos="fade-up">
+  
+  <button class="slider-btn left" onclick="slideLeft()">❮</button>
+
+  <div class="slider" id="slider">
+    <img src="feed1.jpg" onclick="openModal('poster1.jpg')">
+    <img src="feed2.jpg" onclick="openModal('poster2.jpg')">
+    <img src="feed3.jpg" onclick="openModal('poster3.jpg')">
+  </div>
+
+  <button class="slider-btn right" onclick="slideRight()">❯</button>
+
 </div>
 
 </div>
@@ -346,6 +413,23 @@ window.addEventListener("scroll", function(){
     parallax.style.transform = "translateY(" + scrollY * 0.3 + "px)";
   }
 });
+</script>
+
+<script>
+const slider = document.getElementById("slider");
+
+function slideRight(){
+  slider.scrollBy({ left: 320, behavior: 'smooth' });
+}
+
+function slideLeft(){
+  slider.scrollBy({ left: -320, behavior: 'smooth' });
+}
+
+// AUTO SLIDE
+setInterval(() => {
+  slider.scrollBy({ left: 320, behavior: 'smooth' });
+}, 3000);
 </script>
 
 <script>
