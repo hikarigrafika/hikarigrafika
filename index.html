@@ -47,6 +47,11 @@ backdrop-filter: blur(10px);
   gap:20px;
 }
 .card img{width:100%;display:block;}
+.card:hover{transform:scale(1.05);}
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
 .btn{background:#2563eb;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:15px;}
 .card:hover{
 transform:translateY(-8px) scale(1.03);
@@ -144,22 +149,15 @@ body{
 overflow-x:hidden;
 }
 
-/* ===== CAROUSEL ===== */
-.carousel-container{
-  position:relative;
-  overflow:hidden;
-
-  width:100%;
-  max-width:420px;   /* kecilin biar gak gede */
-  
-  margin:20px auto;
-
-  border-radius:16px;
-}
-
 .carousel-track{
   display:flex;
   width:100%;
+}
+
+.carousel-container{
+  width:100%;
+  max-width:420px;   /* ini kunci */
+  margin:30px auto;
 }
 
 .carousel-track{
@@ -214,8 +212,16 @@ overflow-x:hidden;
 }
 
 .carousel-container{
-  max-width: 800px;
-  margin: 30px auto; /* INI YANG BIKIN CENTER */
+  width:100%;
+  max-width:800px;
+  margin:40px auto;
+  display:block;
+  text-align:center;
+}
+
+.carousel-track{
+  display:flex;
+  width:100%;
 }
 
 .carousel-container{
@@ -441,20 +447,14 @@ function closeModal(){
  document.getElementById('modal').style.display='none';
 }
 
-let ticking = false;
-
 window.addEventListener("scroll", function(){
-  if(!ticking){
-    requestAnimationFrame(function(){
-      const parallax = document.querySelector(".parallax");
-      if(parallax){
-        parallax.style.transform = translateY(${window.scrollY * 0.3}px);
-      }
-      ticking = false;
-    });
-    ticking = true;
+  const parallax = document.querySelector(".parallax");
+  let scrollY = window.scrollY;
+  if(parallax){
+    parallax.style.transform = "translateY(" + scrollY * 0.3 + "px)";
   }
 });
+</script>
 
 <script>
 const menuBtn = document.getElementById("menuBtn");
@@ -470,19 +470,20 @@ menuBtn.onclick = function(){
 let lastScroll = 0;
 const navbar = document.getElementById("navbar");
 
-window.addEventListener("scroll", () => {
-  requestAnimationFrame(() => {
-    let currentScroll = window.pageYOffset;
+window.addEventListener("scroll", function() {
+  let currentScroll = window.pageYOffset;
 
-    if (currentScroll > lastScroll) {
-      navbar.style.top = "-100px";
-    } else {
-      navbar.style.top = "0";
-    }
+  if (currentScroll > lastScroll) {
+    // scroll ke bawah → sembunyikan
+    navbar.style.top = "-100px";
+  } else {
+    // scroll ke atas → tampilkan
+    navbar.style.top = "0";
+  }
 
-    lastScroll = currentScroll;
-  });
+  lastScroll = currentScroll;
 });
+</script>
 
 <script>
 let index = 0;
@@ -526,6 +527,9 @@ setInterval(() => {
 
 updateCarousel();
 // AUTO SLIDE
+setInterval(()=>{
+  moveSlide(1);
+},3000);
 
 // INIT
 updateCarousel();
