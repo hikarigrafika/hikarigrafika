@@ -149,6 +149,19 @@ body{
 overflow-x:hidden;
 }
 
+/* ===== CAROUSEL ===== */
+.carousel-container{
+  position:relative;
+  overflow:hidden;
+
+  width:100%;
+  max-width:420px;   /* kecilin biar gak gede */
+  
+  margin:20px auto;
+
+  border-radius:16px;
+}
+
 .carousel-track{
   display:flex;
   width:100%;
@@ -212,16 +225,17 @@ overflow-x:hidden;
 }
 
 .carousel-container{
+  max-width: 800px;
+  width: 100%;
+  margin: 30px auto;
+}
+
+.carousel-container{
   width:100%;
   max-width:800px;
   margin:40px auto;
   display:block;
   text-align:center;
-}
-
-.carousel-track{
-  display:flex;
-  width:100%;
 }
 
 .carousel-container{
@@ -251,12 +265,10 @@ background-size:cover;
 z-index:999;
 ">
 
-<!-- LOGO -->
 <div>
   <img src="logo.png" style="height:35px;">
 </div>
 
-<!-- HAMBURGER -->
 <div id="menuBtn" style="cursor:pointer; margin-right:10px;">
   <span style="display:block;width:25px;height:3px;background:white;margin:5px 0;"></span>
   <span style="display:block;width:25px;height:3px;background:white;margin:5px 0;"></span>
