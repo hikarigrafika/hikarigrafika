@@ -40,6 +40,12 @@ border-bottom:1px solid #eee;
 background: rgba(255,255,255,0.7);
 backdrop-filter: blur(10px);
 }
+
+.grid.sosmed-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+}
 .card img{width:100%;display:block;}
 .card:hover{transform:scale(1.05);}
 .card:hover{
@@ -149,9 +155,9 @@ overflow-x:hidden;
   overflow:hidden;
 
   width:100%;
-  max-width:480px;
-
-  margin:30px auto;
+  max-width:420px;   /* kecilin biar gak gede */
+  
+  margin:20px auto;
 
   border-radius:16px;
 }
@@ -162,7 +168,9 @@ overflow-x:hidden;
 }
 
 .carousel-container{
-  width:85%;
+  width:100%;
+  max-width:420px;   /* ini kunci */
+  margin:30px auto;
 }
 
 .carousel-track{
