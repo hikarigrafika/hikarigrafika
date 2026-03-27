@@ -175,12 +175,8 @@ overflow-x:hidden;
 
 .carousel-track{
   display:flex;
-  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-  will-change: transform;
+  transition:transform 0.5s ease;
 }
-
-.carousel-container{
-  overflow:hidden;
 
 .carousel-item{
   min-width:100%;
@@ -258,14 +254,6 @@ overflow-x:hidden;
   max-width:100%;
   margin-left:auto;
   margin-right:auto;
-}
-
-.carousel-item img{
-  transition: transform 0.6s ease;
-}
-
-.carousel-item img:hover{
-  transform: scale(1.02);
 }
   
 </style>
@@ -524,12 +512,22 @@ window.addEventListener("scroll", function() {
 <script>
 let index = 0;
 const track = document.getElementById("carouselTrack");
-const totalSlides = document.querySelectorAll(".carousel-item").length;
-const dots = document.querySelectorAll(".carousel-dots span");
+const items = document.querySelectorAll(".carousel-item");
+const totalSlides = items.length;
+const dotsContainer = document.getElementById("carouselDots");
+
+// AUTO BUAT DOT
+items.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll("#carouselDots span");
 
 function updateCarousel(){
   track.style.transform = "translateX(-" + index * 100 + "%)";
-
+  
   dots.forEach(dot => dot.classList.remove("active"));
   if(dots[index]) dots[index].classList.add("active");
 }
@@ -537,9 +535,8 @@ function updateCarousel(){
 function moveSlide(step){
   index += step;
 
-  if(index < 0) index = 0;
-  if(index >= totalSlides) index = totalSlides - 1;
-
+  if(index < 0) index = 1;
+if(index > 1) index = 0;
   updateCarousel();
 }
 
@@ -548,13 +545,17 @@ function goToSlide(i){
   updateCarousel();
 }
 
-// AUTO SLIDE (STOP DI AKHIR)
 setInterval(() => {
-  if(index < totalSlides - 1){
-    moveSlide(1);
-  }
-}, 3500);
+  moveSlide(1);
+}, 3000);
 
+updateCarousel();
+// AUTO SLIDE
+setInterval(()=>{
+  moveSlide(1);
+},3000);
+
+// INIT
 updateCarousel();
 </script>
 
