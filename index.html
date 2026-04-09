@@ -245,76 +245,6 @@ overflow-x:hidden;
   margin-left:auto;
   margin-right:auto;
 }
-
-#why h2{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.why-container{
-  display:grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:25px;
-}
-
-.why-card{
-  border-radius:20px;
-  overflow:hidden;
-  transition:0.3s;
-}
-
-.why-card img{
-  width:100%;
-  display:block;
-  border-radius:20px;
-}
-
-.why-card:hover{
-  transform: translateY(-8px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .why-container{
-    grid-template-columns:1fr;
-  }
-}
-
-.hero {
-  display: flex;
-  justify-content: center;   /* center horizontal */
-  align-items: center;       /* center vertical */
-  text-align: center;
-  width: 100%;
-}
-
-.hero-content {
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-body {
-  margin: 0;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;   /* ini yang bikin center */
-  padding: 0 20px;
-}
-
-@media (max-width: 762px) {
-  .hero {
-    padding: 0 15px;
-  }
-}
   
 </style>
 </head>
@@ -369,7 +299,7 @@ z-index:1000;
 
 <section class="hero">
 
-<img src="cover.png" class="cover-anim parallax" style="width:95%;max-width:350px;border-radius:16px;margin-bottom:20px;" data-aos="fade-up">
+<img src="cover.png" class="cover-anim parallax" style="width:100%;max-width:900px;border-radius:16px;margin-bottom:20px;" data-aos="fade-up">
 
 <h1 class="typewriter" id="typeText" data-aos="fade-up"></h1>
 
@@ -390,26 +320,6 @@ Klik di sini untuk komisi dan konsultasi desainmu sekarang!
 <p data-aos="fade-up" data-aos-delay="200">Hikari grafika hadir buat umkm yang mau upgrade usaha nya biar next level, dengan harga yang kompetitif dan Kualitas eksklusif.
 
 Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, kartu undangan, sticker semua bisa di Hikari!</p>
-</section>
-
-<section id="why">
-  <h2 data-aos="fade-up">Kenapa Harus di Hikari?</h2>
-
-  <div class="why-container">
-
-    <div class="why-card" data-aos="fade-up">
-      <img src="why1.png">
-    </div>
-
-    <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-      <img src="why2.png">
-    </div>
-
-    <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-      <img src="why3.png">
-    </div>
-
-  </div>
 </section>
 
 <section id="portfolio">
