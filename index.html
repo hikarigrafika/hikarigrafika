@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="xxxxxx" />
 <title>Hikari Grafika - Jasa Desain Logo & Branding Majalengka</title>
-<title>Portfolio Designer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -16,9 +15,6 @@
 body {font-family:'Poppins',sans-serif;margin:0;background:#fff;color:#333;}
 body{
 scroll-behavior:smooth;
-}
-.bg-gradient{
-background: linear-gradient(135deg, #0D41D2, #3A7DE8);
 }
 .bg-gradient{
 background: linear-gradient(135deg, #2563eb, #3b82f6);
@@ -126,7 +122,7 @@ object-fit:contain;
 nav{
 background-size:cover;
 background-position:center;
-box-sizzing: border-box;
+box-sizing: border-box;
 transition: 0.3s;
 }
 
@@ -149,28 +145,18 @@ body{
 overflow-x:hidden;
 }
 
-/* ===== CAROUSEL ===== */
 .carousel-container{
-  position:relative;
-  overflow:hidden;
-
   width:100%;
-  max-width:420px;   /* kecilin biar gak gede */
-  
-  margin:20px auto;
-
+  max-width:700px;
+  margin:40px auto;
+  text-align:center;
+  overflow:hidden;
   border-radius:16px;
 }
 
 .carousel-track{
   display:flex;
   width:100%;
-}
-
-.carousel-container{
-  width:100%;
-  max-width:420px;   /* ini kunci */
-  margin:30px auto;
 }
 
 .carousel-track{
@@ -228,22 +214,6 @@ overflow-x:hidden;
   max-width: 800px;
   width: 100%;
   margin: 30px auto;
-}
-
-.carousel-container{
-  width:100%;
-  max-width:800px;
-  margin:40px auto;
-  display:block;
-  text-align:center;
-}
-
-.carousel-container{
-  display:block;
-  width:700px;
-  max-width:100%;
-  margin-left:auto;
-  margin-right:auto;
 }
 
 #why h2{
@@ -578,8 +548,8 @@ function updateCarousel(){
 function moveSlide(step){
   index += step;
 
-  if(index < 0) index = 1;
-if(index > 1) index = 0;
+ if(index < 0) index = totalSlides - 1;
+if(index >= totalSlides) index = 0;
   updateCarousel();
 }
 
