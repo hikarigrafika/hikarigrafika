@@ -319,6 +319,22 @@ overflow-x:hidden;
   max-width:600px;
   border-radius:16px;
 }
+
+.logo-large{
+  grid-column: 1 / -1; /* full lebar grid */
+}
+
+.logo-large img{
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  object-fit:cover;
+}
+
+/* optional biar beda feel dari logo kecil */
+.logo-large:hover{
+  transform: translateY(-6px) scale(1.01);
+}
   
 </style>
 </head>
@@ -530,6 +546,15 @@ Gak cuma desain branding aja, semua kebutuhan desain mu seperti T-shirt desain, 
 
 <div class="card logo-small" onclick="openModal('ramen.png')" data-aos="fade-up">
 <img src="ramen.png" style="width:60%; margin:auto; display:block;">
+</div>
+
+<!-- LOGO BARU (FULL WIDTH) -->
+<div class="card logo-large" onclick="openModal('teras-cemplus-branding.jpeg')" data-aos="fade-up">
+  <img src="teras-cemplus.jpg">
+</div>
+
+<div class="card logo-large" onclick="openModal('mitrans-branding.jpeg')" data-aos="fade-up">
+  <img src="mitrans.jpg">
 </div>
 
 </div>
