@@ -335,54 +335,6 @@ overflow-x:hidden;
 .logo-large:hover{
   transform: translateY(-6px) scale(1.01);
 }
-
-#menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:75%;
-  height:100%;
-  background:#fff;
-  padding:30px;
-  transition:0.4s ease;
-  z-index:1000;
-  box-shadow:-10px 0 30px rgba(0,0,0,0.1);
-}
-
-#menu.active{
-  right:0;
-}
-
-#overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.4);
-  opacity:0;
-  visibility:hidden;
-  transition:0.3s;
-  z-index:999;
-}
-
-#overlay.active{
-  opacity:1;
-  visibility:visible;
-}
-
-#menu a{
-  display:block;
-  margin-bottom:18px;
-  font-size:18px;
-  font-weight:500;
-  transition:0.2s;
-}
-
-#menu a:hover{
-  transform:translateX(5px);
-  color:#2563eb;
-}
   
 </style>
 </head>
@@ -417,7 +369,6 @@ z-index:999;
 
 <!-- MENU MOBILE -->
 <div id="menu" style="
-<div id="overlay"></div>
 position:fixed;
 top:0;
 right:-100%;
@@ -658,30 +609,34 @@ window.addEventListener("scroll", function(){
 });
 </script>
 
+<script>
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
-const overlay = document.getElementById("overlay");
-const links = menu.querySelectorAll("a");
 
-// buka menu
-menuBtn.onclick = () => {
-  menu.classList.add("active");
-  overlay.classList.add("active");
-};
-
-// tutup menu
-function closeMenu(){
-  menu.classList.remove("active");
-  overlay.classList.remove("active");
+menuBtn.onclick = function(){
+  if(menu.style.right === "0px"){
+    menu.style.right = "-100%";
+  } else {
+    menu.style.right = "0";
+  }
 }
+let lastScroll = 0;
+const navbar = document.getElementById("navbar");
 
-// klik luar (overlay)
-overlay.onclick = closeMenu;
+window.addEventListener("scroll", function() {
+  let currentScroll = window.pageYOffset;
 
-// klik link → auto close
-links.forEach(link => {
-  link.addEventListener("click", closeMenu);
+  if (currentScroll > lastScroll) {
+    // scroll ke bawah → sembunyikan
+    navbar.style.top = "-100px";
+  } else {
+    // scroll ke atas → tampilkan
+    navbar.style.top = "0";
+  }
+
+  lastScroll = currentScroll;
 });
+</script>
 
 <script>
 let index = 0;
